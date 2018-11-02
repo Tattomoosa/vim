@@ -1,6 +1,9 @@
 " Sets the color scheme to gruvbox
 source ~/.config/vim/color-schemes/gruvbox/colors/gruvbox.vim
 
+" Sets a column marker at 80 characters
+set colorcolumn=80
+
 " line numbers
 set relativenumber
 set number
