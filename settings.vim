@@ -4,9 +4,11 @@ source ~/.config/vim/color-schemes/gruvbox/colors/gruvbox.vim
 " Sets a column marker at 80 characters
 set colorcolumn=80
 
-" line numbers
-set relativenumber
-set number
+" no line numbers
+set norelativenumber
+set nonumber
+" but we still want a left margin
+set foldcolumn=2
 
 " autocomplete
 set wildmenu
@@ -32,6 +34,7 @@ set title
 
 highlight CWD ctermfg=grey ctermbg=black guibg=#504945 guifg=#000000 gui=bold
 highlight File ctermfg=red ctermbg=black guibg=#504945 guifg=#cbe1b1
+highlight FoldColumn ctermbg=black guibg=#706965
 
 highlight ColorColumn ctermbg=black guibg=#706965
 
