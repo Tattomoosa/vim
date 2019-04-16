@@ -7,4 +7,7 @@ endif
 
 call plug#begin()
 Plug 'airblade/vim-gitgutter'
+Plug 'gabrielelana/vim-markdown'
+Plug 'rust-lang/rust.vim'
+Plug 'tpope/vim-fugitive'
 call plug#end()
