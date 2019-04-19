@@ -10,4 +10,5 @@ Plug 'airblade/vim-gitgutter'
 Plug 'gabrielelana/vim-markdown'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'morhetz/gruvbox'
 call plug#end()

@@ -1,5 +1,7 @@
 " Sets the color scheme to gruvbox
-source ~/.config/vim/color-schemes/gruvbox/colors/gruvbox.vim
+" source ~/.config/vim/color-schemes/gruvbox/colors/gruvbox.vim
+colorscheme gruvbox
+
 
 " Sets a column marker at 80 characters
 set colorcolumn=80
@@ -25,13 +27,25 @@ set ignorecase
 set smartcase
 set hlsearch
 
-" don't beep
+" don't ever beep at me
 set visualbell
 set noerrorbells
+
+" Tell vim to remember certain things when we exit
+"  '10  :  marks will be remembered for up to 10 previously edited files
+"  "100 :  will save up to 100 lines for each register
+"  :20  :  up to 20 lines of command-line history will be remembered
+"  %    :  saves and restores the buffer list
+"  n... :  where to save the viminfo files
+set viminfo='10,\"100,:20,%,n~/.viminfo
 
 " set terminal's title
 set title
 
+" mac backspace fix
+set backspace=indent,eol,start
+
+" Set interface colors
 highlight CWD ctermfg=grey ctermbg=black guibg=#504945 guifg=#000000 gui=bold
 highlight File ctermfg=red ctermbg=black guibg=#504945 guifg=#cbe1b1
 highlight FoldColumn ctermbg=black guibg=#706965
@@ -67,4 +81,4 @@ set listchars=tab:\|\ ,trail:X
 set cpo=n
 
 " enable fenced code block syntax highlighting in markdown
-let g:markdown_fenced_languages = ['html', 'javascript', 'js=javascript']
+let g:markdown_fenced_languages = ['html', 'javascript', 'js=javascript', 'css']
