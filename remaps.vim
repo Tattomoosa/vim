@@ -14,7 +14,9 @@ let mapleader = "\<Space>"
 " FILETYPE
 " autocmd FileType c nnoremap <buffer> <leader>eh :e %:r.h<CR>
 " autocmd FileType cpp nnoremap <buffer> <leader>eh :e %:r.h<CR>
+" <leader>eh to switch to header files from code files
 autocmd FileType c,cpp nnoremap <buffer> <leader>eh :e %:r.h<CR>
+" <leader>ec to switch to code files from header files
 autocmd BufEnter,Bufnew *.h nnoremap <buffer> <leader>ec :e %:r.c*<CR>
 
 " easy vimrc editing
@@ -25,7 +27,7 @@ nnoremap <leader>sv :so $MYVIMRC<CR>
 nnoremap <leader>y gg"*yG``
 
 " saves all open buffers
-nnoremap <leader>W :wall<CR>
+nnoremap <leader>w :wall<CR>
 
 " EZ window switching... mostly been using c-w though. might ditch
 " nnoremap <leader>h <C-w>h
@@ -38,17 +40,27 @@ nnoremap <leader>Td :put =strftime('%m/%d/%y')<CR>
 " edit notebook
 nnoremap <leader>N :e ~/writing/index.md<CR>
 
-
 " nnoremap <leader>cc :!g++ -g -Wall -ansi *.cpp<CR>
 " nnoremap <leader>cr :!g++ -g -Wall -ansi *.cpp && ./a.out<CR>
-nnoremap <leader>r :!./a.out<CR>
+nnoremap <leader>rr :!./a.out<CR>
+nnoremap <leader>rv :!valgrind ./a.out<CR>
+nnoremap <leader>rV :!valgrind -v --leak-check=full --log-file=valgrind_log.txt ./a.out<CR>
+nnoremap <leader>rd :!gdb -tui ./a.out<CR>
+" So the goal is to compile the program and load the compiler's output
+" into the changelist so we can jump between errors with :cn and :cp
+" failed attempts:
 " nnoremap <leader>m :make<CR>
 " nnoremap <leader>m :make<CR><C-l>
 " nnoremap <leader>m :silent make<CR><C-l>
 " nnoremap <leader>m :silent make<CR><C-l>:copen<CR>
 " nnoremap <leader>m :silent make<CR><C-l>:copen<CR>
-" nnoremap <leader>m mP:silent make<CR><C-l>:copen<CR>`P " doesn't work!
-nnoremap <leader>m :silent make!<CR><C-l>:copen<CR>
+" success:
+nnoremap <leader>M :silent make!<CR><C-l>:copen<CR>:cc<CR>
+nnoremap <leader>m :silent make!<CR><C-l>
+
+" Toggle GitGutter
+nnoremap <leader>tg :GitGutterToggle<CR>
+nnoremap <leader>tn :set relativenumber!<CR>:set number!<CR>
 
 nnoremap <leader><leader> :nohl<CR>
 
@@ -60,16 +72,20 @@ nnoremap <leader><leader> :nohl<CR>
 " looks like it's a bug with vim.
 " nnoremap <Esc> :nohl<CR>
 
-" buffers
+" easy switch buffers
 nnoremap [b :bprevious<CR>
 nnoremap ]b :bnext<CR>
 
-" tabs
+" easy switch tabs
 nnoremap [t :tabp<CR>
 nnoremap ]t :tabn<CR>
 
 " vertical new files instead of horizontal
-nnoremap <C-w>n :vnew<CR>
+nnoremap <C-w>N :vnew<CR>
+
+" Vim's own manual recommends this remapping since Y is by default the 
+" same as yy and that's nonsense.
+nnoremap Y y$
 
 """"""""""""""""""""""""""""""""""""""""
 " INSERT MODE
@@ -80,8 +96,7 @@ inoremap (<CR> (<CR>)<C-o>O
 inoremap [<CR> [<CR>]<C-o>O
 inoremap {<CR> {<CR>}<C-o>O
 
-" for keyboards that I can't remap
-" capslock on
+" for keyboards that I can't remap capslock on
 inoremap kj <Esc>
 inoremap jk <Esc>
 
@@ -92,5 +107,3 @@ inoremap jk <Esc>
 "visual mode
 vnoremap < <gv
 vnoremap > >gv
-
-

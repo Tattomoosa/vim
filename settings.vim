@@ -3,6 +3,7 @@ filetype indent plugin on
 syntax on
 " Sets a column marker at 80 characters
 set colorcolumn=80
+set omnifunc=syntaxcomplete#Complete
 
 set laststatus=2 " always display status
 set confirm
@@ -37,6 +38,8 @@ set mps+=<:>
 set mat=5
 " show commands
 set showcmd
+" per file foldmethod, etc with comment on bottom line
+set modeline
 
 " searching
 set incsearch
@@ -63,23 +66,59 @@ set title
 set backspace=indent,eol,start
 
 " COLORS {{{
-
-" color scheme
-colorscheme gruvbox
+" gruvbox {{{
+let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_color_column = 'bg4'
+" }}}
 set background=dark
+"set termguicolors
+" color scheme
+"colorscheme gruvbox "supports better c++
+"colorscheme sacredforest
+"colorscheme spacegray
+"colorscheme parsec
+"colorscheme zenburn "supports better c++
+"colorscheme limelight
+"colorscheme seoul256 "supports better c++
+"colorscheme PaperColor
+"colorscheme zenburn
+colorscheme apprentice "supports better c++
+"colorscheme dracula "supports better c++
+"colorscheme base16-tomorrow-night "supports better c++
+
 
 " Set interface colors
-highlight CWD ctermfg=grey ctermbg=black guibg=#504945 guifg=#000000 gui=bold
-highlight File ctermfg=red ctermbg=black guibg=#504945 guifg=#cbe1b1
-highlight FoldColumn ctermbg=black guibg=#706965
+" highlight CWD ctermfg=grey ctermbg=black guibg=#504945 guifg=#000000 gui=bold
+" highlight File ctermfg=red ctermbg=black guibg=#504945 guifg=#cbe1b1
+" highlight FoldColumn ctermbg=black guibg=#706965
 
-highlight ColorColumn ctermbg=black guibg=#706965
+"highlight ColorColumn ctermbg=black guibg=#3c3836
+"highlight ColorColumn ctermbg=black guibg=#101012
+highlight clear SignColumn
+"highlight SignColumn gui=none
 
-highlight lineNr guibg=#504945 guifg=grey
-highlight CursorLineNr guibg=#222222 guifg=white gui=bold
+" git gutter (gruvbox)
+highlight GitGutterAdd guifg=#689d6a
+highlight GitGutterChange guifg=#458488
+highlight GitGutterDelete guifg=#cc241d
+
+" git gutter (dracula)
+"highlight GitGutterAdd guifg=#50fa7b gui=none
+"highlight GitGutterChange guifg=#8be9fd
+"highlight GitGutterDelete guifg=#ff5555
+
+" git gutter (zenburn)
+"highlight GitGutterAdd guifg=#60B48A
+"highlight GitGutterChange guifg=#506070
+"highlight GitGutterDelete guifg=#dca3a3
+"
+" highlight SignColumn ctermbg=black guibg=green ctermfg=white guifg=white
+
+" highlight lineNr guibg=#504945 guifg=grey
+" highlight CursorLineNr guibg=#222222 guifg=white gui=bold
 
 " less obtrusive search highlighting
-highlight Search ctermbg=none ctermfg=red cterm=italic,underline gui=bold,underline guibg=#555599 guifg=white
+" highlight Search ctermbg=none ctermfg=red cterm=italic,underline gui=bold,underline guibg=#555599 guifg=white
 " }}}
 
 " buffers
