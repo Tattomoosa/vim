@@ -12,11 +12,8 @@ let mapleader = "\<Space>"
 " nnoremap <leader>eC :e <C-R>%<C-H>cpp<CR>
 
 " FILETYPE
-" autocmd FileType c nnoremap <buffer> <leader>eh :e %:r.h<CR>
-" autocmd FileType cpp nnoremap <buffer> <leader>eh :e %:r.h<CR>
-" <leader>eh to switch to header files from code files
-autocmd FileType c,cpp nnoremap <buffer> <leader>eh :e %:r.h<CR>
-" <leader>ec to switch to code files from header files
+autocmd FileType c nnoremap <buffer> <leader>eh :e %:r.h<CR>
+autocmd FileType cpp nnoremap <buffer> <leader>eh :e %:r.h<CR>
 autocmd BufEnter,Bufnew *.h nnoremap <buffer> <leader>ec :e %:r.c*<CR>
 
 " easy vimrc editing
@@ -39,6 +36,8 @@ nnoremap <leader>Td :put =strftime('%m/%d/%y')<CR>
 
 " edit notebook
 nnoremap <leader>N :e ~/writing/index.md<CR>
+nnoremap <leader>cc :!g++ -g -Wall -ansi *.cpp<CR>
+nnoremap <leader>cr :!g++ -g -Wall -ansi *.cpp && ./a.out<CR>
 
 " nnoremap <leader>cc :!g++ -g -Wall -ansi *.cpp<CR>
 " nnoremap <leader>cr :!g++ -g -Wall -ansi *.cpp && ./a.out<CR>

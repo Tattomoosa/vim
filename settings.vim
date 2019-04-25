@@ -1,6 +1,3 @@
-filetype indent plugin on
-" turn on syntax highlighting
-syntax on
 " Sets a column marker at 80 characters
 set colorcolumn=80
 set omnifunc=syntaxcomplete#Complete
@@ -116,6 +113,15 @@ highlight GitGutterDelete guifg=#cc241d
 
 " highlight lineNr guibg=#504945 guifg=grey
 " highlight CursorLineNr guibg=#222222 guifg=white gui=bold
+" Set interface colors
+highlight CWD ctermfg=grey ctermbg=black guibg=#504945 guifg=#000000 gui=bold
+highlight File ctermfg=red ctermbg=black guibg=#504945 guifg=#cbe1b1
+highlight FoldColumn ctermbg=black guibg=#706965
+
+highlight ColorColumn ctermbg=black guibg=#706965
+
+highlight lineNr guibg=#504945 guifg=grey
+highlight CursorLineNr guibg=#222222 guifg=white gui=bold
 
 " less obtrusive search highlighting
 " highlight Search ctermbg=none ctermfg=red cterm=italic,underline gui=bold,underline guibg=#555599 guifg=white
