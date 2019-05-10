@@ -17,8 +17,8 @@ autocmd FileType cpp nnoremap <buffer> <leader>eh :e %:r.h<CR>
 autocmd BufEnter,Bufnew *.h nnoremap <buffer> <leader>ec :e %:r.c*<CR>
 
 " easy vimrc editing
-nnoremap <leader>ev :e $MYVIMRC<CR>
-nnoremap <leader>sv :so $MYVIMRC<CR>
+nnoremap <leader>ev :edit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " yanks the whole file and returns cursor to where you were
 nnoremap <leader>y gg"*yG``

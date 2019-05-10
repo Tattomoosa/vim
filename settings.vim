@@ -1,6 +1,5 @@
 " Sets a column marker at 80 characters
 set colorcolumn=80
-set omnifunc=syntaxcomplete#Complete
 
 set laststatus=2 " always display status
 set confirm
@@ -123,9 +122,11 @@ highlight ColorColumn ctermbg=black guibg=#706965
 highlight lineNr guibg=#504945 guifg=grey
 highlight CursorLineNr guibg=#222222 guifg=white gui=bold
 
+highlight StatusLine guibg=#dddddd ctermbg=white
 " less obtrusive search highlighting
 " highlight Search ctermbg=none ctermfg=red cterm=italic,underline gui=bold,underline guibg=#555599 guifg=white
-" }}}
+" }}
+" less obtrusive search highlighting
 
 " buffers
 set hidden " allows hidden unsaved buffers
@@ -148,6 +149,31 @@ set listchars=tab:\|\ ,trail:X
 
 " puts return character in numberline
 set cpo=n
+" statusline
+set statusline=
+" dark
+set statusline+=%#CWD#
+" flags
+set statusline+=%m
+set statusline+=%r
+set statusline+=%h
+set statusline+=%w
+" lightgrey
+set statusline+=%#Cursor#
+" buffer number
+set statusline+=\ %n\ 
+" mode trick from https://dustri.org/b/lightweight-and-sexy-status-bar-in-vim.html
+set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ \ ':''}
+set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ \ ':''}
+set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ \ ':''}
+set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ \ ':''}
+set statusline+=%#StatusLineIM#
+" short filename
+set statusline+=\ %f\ 
+set statusline+=%=
+set statusline+=%#Cursor#
+set statusline+=\ %y\ 
+set statusline+=\ %4l,%-4c\ 
 
-" enable fenced code block syntax highlighting in markdown
+" enable fenced code block syntax highlighting in markdown, not working?
 let g:markdown_fenced_languages = ['html', 'javascript', 'js=javascript', 'css']
