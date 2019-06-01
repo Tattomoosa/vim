@@ -2,16 +2,16 @@
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " restore cursor position
-function! ResetCursor()
-  if line("'\"") <= line("$")
-    normal! g`"
-    return 1
-  endif
-endfunction
+" function! ResetCursor()
+"   if line("'\"") <= line("$")
+"     normal! g`"
+"     return 1
+"   endif
+" endfunction
 
-augroup resCur
+"augroup resCur
   " removes any existing commands in augroup
-  autocmd!
+  "autocmd!
   " on entering any buffer, call 
-  autocmd BufWinEnter * call ResetCursor()
-augroup END
+  " autocmd BufWinEnter * call ResetCursor()
+" augroup END
