@@ -13,6 +13,10 @@ set expandtab
 set smarttab
 set smartindent
 
+if has("mouse_sgr")
+    set ttymouse=sgr
+end
+
 " do not move cursor to the start of line on <C-d> etc.
 set nostartofline
 " no line numbers

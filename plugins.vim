@@ -15,16 +15,8 @@ Plug 'bfrg/vim-cpp-modern'
 Plug 'ap/vim-css-color'
 " vim wiki
 Plug 'vimwiki/vimwiki'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " themes
-" Plug 'dracula/vim', {'as':'dracula'}
-" Plug 'morhetz/gruvbox'
-" Plug 'ajh17/spacegray.vim'
-" Plug 'kkpmw/sacredforest-vim'
-" Plug 'jnurmine/Zenburn'
-" Plug 'keith/parsec.vim'
-" Plug 'junegunn/seoul256.vim'
-" Plug 'NLKNguyen/papercolor-theme'
-" Plug 'mswift42/vim-themes'
 Plug 'romainl/Apprentice'
 " Plug 'chriskempson/base16-vim'
 " tpope
