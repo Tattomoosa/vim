@@ -1,3 +1,3 @@
-command Todo grep TODO -r .
+command! Todo grep TODO -r .
 
 

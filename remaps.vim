@@ -12,8 +12,11 @@ let mapleader = "\<Space>"
 " nnoremap <leader>eC :e <C-R>%<C-H>cpp<CR>
 
 " FILETYPE
-autocmd FileType c nnoremap <buffer> <leader>eh :e %:r.h<CR>
-autocmd FileType cpp nnoremap <buffer> <leader>eh :e %:r.h<CR>
+" Edit .h files easily
+" TODO no error on open if file doesn't exist!
+" autocmd FileType c nnoremap <buffer> <leader>eh :e %:r.h<CR>
+" TODO no error on open if file doesn't exist!
+" autocmd FileType cpp nnoremap <buffer> <leader>eh :e %:r.h<CR>
 autocmd BufEnter,Bufnew *.h nnoremap <buffer> <leader>ec :e %:r.c*<CR>
 
 " easy vimrc editing
@@ -36,8 +39,11 @@ nnoremap <leader>Td :put =strftime('%m/%d/%y')<CR>
 
 " edit notebook
 nnoremap <leader>N :e ~/writing/index.md<CR>
-nnoremap <leader>cc :!g++ -g -Wall -ansi *.cpp<CR>
-nnoremap <leader>cr :!g++ -g -Wall -ansi *.cpp && ./a.out<CR>
+nnoremap <leader>Cc :!g++ -g -Wall -ansi *.cpp<CR>
+nnoremap <leader>Cr :!g++ -g -Wall -ansi *.cpp && ./a.out<CR>
+
+nnoremap <leader>c :CocList<CR>
+nnoremap <leader>d :CocList diagnostics<CR>
 
 " nnoremap <leader>cc :!g++ -g -Wall -ansi *.cpp<CR>
 " nnoremap <leader>cr :!g++ -g -Wall -ansi *.cpp && ./a.out<CR>
@@ -78,6 +84,21 @@ nnoremap ]b :bnext<CR>
 " easy switch tabs
 nnoremap [t :tabp<CR>
 nnoremap ]t :tabn<CR>
+
+" easy switch tabs
+nnoremap [q :cp<CR>
+nnoremap ]q :cn<CR>
+
+" go to next error
+nnoremap ]e <Plug>(coc-diagnostic-next-error)
+nnoremap [e <Plug>(coc-diagnostic-prev-error)
+
+" go to next warning (or error)
+nnoremap ]w <Plug>(coc-diagnostic-next)
+nnoremap [w <Plug>(coc-diagnostic-prev)
+
+
+" go to next warning
 
 " vertical new files instead of horizontal
 nnoremap <C-w>N :vnew<CR>

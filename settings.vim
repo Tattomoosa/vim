@@ -1,5 +1,10 @@
 " Sets a column marker at 80 characters
 set colorcolumn=80
+set updatetime=100
+
+" Apparently this makes tmux and vim play nicer
+set background=dark
+set t_Co=256
 
 set laststatus=2 " always display status
 set confirm
@@ -98,14 +103,14 @@ highlight clear SignColumn
 "highlight SignColumn gui=none
 
 " git gutter (gruvbox)
-highlight GitGutterAdd guifg=#689d6a
-highlight GitGutterChange guifg=#458488
-highlight GitGutterDelete guifg=#cc241d
+" highlight GitGutterAdd guifg=#689d6a
+" highlight GitGutterChange guifg=#458488
+" highlight GitGutterDelete guifg=#cc241d
 
 " git gutter (dracula)
-"highlight GitGutterAdd guifg=#50fa7b gui=none
-"highlight GitGutterChange guifg=#8be9fd
-"highlight GitGutterDelete guifg=#ff5555
+highlight GitGutterAdd guifg=#50fa7b gui=none
+highlight GitGutterChange guifg=#8be9fd
+highlight GitGutterDelete guifg=#ff5555
 
 " git gutter (zenburn)
 "highlight GitGutterAdd guifg=#60B48A
@@ -128,9 +133,9 @@ highlight CursorLineNr guibg=#222222 guifg=white gui=bold
 
 highlight StatusLine guibg=#dddddd ctermbg=white
 " less obtrusive search highlighting
-" highlight Search ctermbg=none ctermfg=red cterm=italic,underline gui=bold,underline guibg=#555599 guifg=white
+highlight Search ctermbg=black ctermfg=lightblue cterm=bold,underline gui=bold,underline guibg=#555599 guifg=white
+" highlight Search gui=bold,underline guibg=#555599 guifg=white
 " }}
-" less obtrusive search highlighting
 
 " buffers
 set hidden " allows hidden unsaved buffers
@@ -175,6 +180,8 @@ set statusline+=%#StatusLineIM#
 " short filename
 set statusline+=\ %f\ 
 set statusline+=%=
+set statusline+=%#CWD#
+set statusline+=%{coc#status()}
 set statusline+=%#Cursor#
 set statusline+=\ %y\ 
 set statusline+=\ %4l,%-4c\ 
