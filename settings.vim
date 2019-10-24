@@ -9,6 +9,8 @@ set t_Co=256
 set laststatus=2 " always display status
 set confirm
 
+set path+=**
+
 " indentation
 set autoindent
 set shiftwidth=4
@@ -66,6 +68,7 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 
 " set terminal's title
 set title
+set titleold=
 
 " mac backspace fix
 set backspace=indent,eol,start
@@ -154,7 +157,7 @@ set wrap
 set linebreak breakat&vim
 
 set list
-set listchars=tab:\|\ ,trail:X
+set listchars=tab:\|\ ,trail:·,nbsp:·
 
 " puts return character in numberline
 set cpo=n

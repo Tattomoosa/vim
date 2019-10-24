@@ -28,6 +28,7 @@ nnoremap <leader>y gg"*yG``
 
 " saves all open buffers
 nnoremap <leader>w :wall<CR>
+nnoremap <leader>g :Git 
 
 " EZ window switching... mostly been using c-w though. might ditch
 " nnoremap <leader>h <C-w>h
