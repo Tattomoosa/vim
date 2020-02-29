@@ -13,9 +13,9 @@ set path+=**
 
 " indentation
 set autoindent
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set expandtab
 set smarttab
 set smartindent
@@ -87,7 +87,7 @@ set background=dark
 "colorscheme parsec
 "colorscheme zenburn "supports better c++
 "colorscheme limelight
-"colorscheme seoul256 "supports better c++
+" colorscheme seoul256 "supports better c++
 "colorscheme PaperColor
 "colorscheme zenburn
 colorscheme apprentice "supports better c++

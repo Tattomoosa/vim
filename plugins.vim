@@ -14,11 +14,16 @@ Plug 'gabrielelana/vim-markdown'
 Plug 'rust-lang/rust.vim'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'jaxbot/semantic-highlight.vim'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'gisphm/vim-gitignore'
+Plug 'andys8/vim-elm-syntax'
 " web
 Plug 'pangloss/vim-javascript'
 Plug 'ap/vim-css-color'
 Plug 'othree/html5.vim'
 Plug 'elzr/vim-json'
+"godot
+Plug 'calviken/vim-gdscript3'
 " python
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'vim-python/python-syntax'
@@ -36,8 +41,13 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
+Plug 'yuttie/comfortable-motion.vim'
 " run shell commands in tmux split
 Plug 'benmills/vimux'
+" ranger
+Plug 'rbgrouleff/bclose.vim'
+" requires bclose to replace netrw ( :Ex )
+Plug 'francoiscabrol/ranger.vim'
 " other
 Plug 'wellle/targets.vim'
 call plug#end()
@@ -49,5 +59,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
+
+let g:ranger_replace_netrw = 1
 
 let g:python_highlight_all = 1
