@@ -2,6 +2,9 @@
 set colorcolumn=80
 set updatetime=100
 
+" load project-specific .vimrc
+set exrc
+
 " Apparently this makes tmux and vim play nicer
 set background=dark
 set t_Co=256
@@ -13,9 +16,9 @@ set path+=**
 
 " indentation
 set autoindent
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set expandtab
 set smarttab
 set smartindent
@@ -157,7 +160,8 @@ set wrap
 set linebreak breakat&vim
 
 set list
-set listchars=tab:\|\ ,trail:·,nbsp:·
+" set listchars=tab:\|\ ,trail:·,nbsp:·
+set listchars=tab:\ \ ,trail:·,nbsp:·,
 
 " puts return character in numberline
 set cpo=n
