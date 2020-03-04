@@ -10,13 +10,14 @@ call plug#begin()
 " git
 Plug 'airblade/vim-gitgutter'
 " syntax highlighting
-Plug 'gabrielelana/vim-markdown'
+" Plug 'gabrielelana/vim-markdown'
 Plug 'rust-lang/rust.vim'
-Plug 'bfrg/vim-cpp-modern'
+" Plug 'bfrg/vim-cpp-modern'
 Plug 'jaxbot/semantic-highlight.vim'
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'gisphm/vim-gitignore'
-Plug 'andys8/vim-elm-syntax'
+" Plug 'gisphm/vim-gitignore'
+" Plug 'andys8/vim-elm-syntax'
+Plug 'sheerun/vim-polyglot'
 " web
 Plug 'pangloss/vim-javascript'
 Plug 'ap/vim-css-color'
@@ -48,6 +49,9 @@ Plug 'benmills/vimux'
 Plug 'rbgrouleff/bclose.vim'
 " requires bclose to replace netrw ( :Ex )
 Plug 'francoiscabrol/ranger.vim'
+" animate
+" Plug 'camspiers/animate.vim'
+" Plug 'camspiers/lens.vim'
 " other
 Plug 'wellle/targets.vim'
 call plug#end()
