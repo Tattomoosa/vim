@@ -17,14 +17,14 @@ let mapleader = "\<Space>"
 " autocmd FileType c nnoremap <buffer> <leader>eh :e %:r.h<CR>
 " TODO no error on open if file doesn't exist!
 " autocmd FileType cpp nnoremap <buffer> <leader>eh :e %:r.h<CR>
-autocmd BufEnter,Bufnew *.h nnoremap <buffer> <leader>ec :e %:r.c*<CR>
+" autocmd BufEnter,Bufnew *.h nnoremap <buffer> <leader>ec :e %:r.c*<CR>
 
 " easy vimrc editing
-nnoremap <leader>ev :edit $MYVIMRC<CR>
+nnoremap <leader>ev :edit $MYVIMRC<CR>$gf
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " yanks the whole file and returns cursor to where you were
-nnoremap <leader>y gg"*yG``
+nnoremap <leader>Y gg"*yG``
 
 " saves all open buffers
 nnoremap <leader>w :wall<CR>
@@ -86,20 +86,18 @@ nnoremap ]b :bnext<CR>
 nnoremap [t :tabp<CR>
 nnoremap ]t :tabn<CR>
 
-" easy switch tabs
+" easy switch change/quicklist
+nnoremap [q :cp<CR>
+nnoremap ]q :cn<CR>
+
+" easy switch locations
 nnoremap [q :cp<CR>
 nnoremap ]q :cn<CR>
 
 " go to next error
-nnoremap ]e <Plug>(coc-diagnostic-next-error)
-nnoremap [e <Plug>(coc-diagnostic-prev-error)
+nnoremap ]l :lprev<CR>
+nnoremap [l :lnext<CR>
 
-" go to next warning (or error)
-nnoremap ]w <Plug>(coc-diagnostic-next)
-nnoremap [w <Plug>(coc-diagnostic-prev)
-
-
-" go to next warning
 
 " vertical new files instead of horizontal
 nnoremap <C-w>N :vnew<CR>
