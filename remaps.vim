@@ -20,7 +20,7 @@ let mapleader = "\<Space>"
 " autocmd BufEnter,Bufnew *.h nnoremap <buffer> <leader>ec :e %:r.c*<CR>
 
 " easy vimrc editing
-nnoremap <leader>ev :edit $MYVIMRC<CR>$gf
+nnoremap <leader>ev :edit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " yanks the whole file and returns cursor to where you were
@@ -36,31 +36,21 @@ nnoremap <leader>g :Git
 " nnoremap <leader>k <C-w>k
 " nnoremap <leader>l <C-w>l
 
-nnoremap <leader>Td :put =strftime('%m/%d/%y')<CR>
-
-" edit notebook
-nnoremap <leader>N :e ~/writing/index.md<CR>
-nnoremap <leader>Cc :!g++ -g -Wall -ansi *.cpp<CR>
-nnoremap <leader>Cr :!g++ -g -Wall -ansi *.cpp && ./a.out<CR>
+nnoremap <leader>D :put =strftime('%m/%d/%y')<CR>
 
 nnoremap <leader>c :CocList<CR>
 nnoremap <leader>d :CocList diagnostics<CR>
 
 " nnoremap <leader>cc :!g++ -g -Wall -ansi *.cpp<CR>
 " nnoremap <leader>cr :!g++ -g -Wall -ansi *.cpp && ./a.out<CR>
-nnoremap <leader>rr :!./a.out<CR>
-nnoremap <leader>rv :!valgrind ./a.out<CR>
-nnoremap <leader>rV :!valgrind -v --leak-check=full --log-file=valgrind_log.txt ./a.out<CR>
-nnoremap <leader>rd :!gdb -tui ./a.out<CR>
+" nnoremap <leader>rr :!./a.out<CR>
+" nnoremap <leader>rv :!valgrind ./a.out<CR>
+" nnoremap <leader>rV :!valgrind -v --leak-check=full --log-file=valgrind_log.txt ./a.out<CR>
+" nnoremap <leader>rd :!gdb -tui ./a.out<CR>
+
 " So the goal is to compile the program and load the compiler's output
 " into the changelist so we can jump between errors with :cn and :cp
 " failed attempts:
-" nnoremap <leader>m :make<CR>
-" nnoremap <leader>m :make<CR><C-l>
-" nnoremap <leader>m :silent make<CR><C-l>
-" nnoremap <leader>m :silent make<CR><C-l>:copen<CR>
-" nnoremap <leader>m :silent make<CR><C-l>:copen<CR>
-" success:
 nnoremap <leader>M :silent make!<CR><C-l>:copen<CR>:cc<CR>
 nnoremap <leader>m :silent make!<CR><C-l>
 
@@ -73,10 +63,6 @@ nnoremap <leader><leader> :nohl<CR>
 """"""""""""""""""""""""""""""""""""""""
 " NORMAL MODE
 """"""""""""""""""""""""""""""""""""""""
-
-" for some reason this is launching vim in replace mode?
-" looks like it's a bug with vim.
-" nnoremap <Esc> :nohl<CR>
 
 " easy switch buffers
 nnoremap [b :bprevious<CR>

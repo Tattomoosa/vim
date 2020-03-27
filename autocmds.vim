@@ -14,3 +14,7 @@ autocmd BufNewFile,BufReadPost ~/cs333/*.c
   \ expandtab
 autocmd BufNewFile,BufReadPost ~/cs333/*.c
   \ nnoremap <buffer> <leader>F o#ifdef CS333_P3<CR>#endif<C-o>O
+
+autocmd BufEnter,BufNew *.tex
+  \ nnoremap <buffer> <leader>r
+  \ :!pdflatex % && pkill -HUP mupdf<CR>
