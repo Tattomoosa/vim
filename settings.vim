@@ -73,7 +73,6 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 set title
 set titleold=
 
-" mac backspace fix
 set backspace=indent,eol,start
 
 " COLORS {{{
