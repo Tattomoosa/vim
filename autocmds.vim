@@ -3,7 +3,7 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.gd
       \ set tabstop=2
       \ shiftwidth=2
-      \ expandtab=off
+      \ noexpandtab
 autocmd BufNewFile,BufReadPost *.rasi set filetype=css
 autocmd BufNewFile,BufReadPost *.py set makeprg=python
 autocmd BufNewFile,BufReadPost *.py setlocal nonumber

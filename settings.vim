@@ -2,6 +2,9 @@
 set colorcolumn=80
 set updatetime=100
 
+" TODO research this
+set backupcopy=yes
+
 " load project-specific .vimrc
 set exrc
 
@@ -33,7 +36,7 @@ set nostartofline
 set norelativenumber
 set nonumber
 " but we still want a left margin
-set foldcolumn=2
+set foldcolumn=1
 
 " line,column numbers in status bar
 set ruler
@@ -81,7 +84,7 @@ let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_color_column = 'bg4'
 " }}}
 set background=dark
-"set termguicolors
+set termguicolors
 " color scheme
 "colorscheme gruvbox "supports better c++
 "colorscheme sacredforest
@@ -104,7 +107,7 @@ colorscheme apprentice "supports better c++
 
 "highlight ColorColumn ctermbg=black guibg=#3c3836
 "highlight ColorColumn ctermbg=black guibg=#101012
-highlight clear SignColumn
+" highlight clear SignColumn
 "highlight SignColumn gui=none
 
 " git gutter (gruvbox)
@@ -113,33 +116,41 @@ highlight clear SignColumn
 " highlight GitGutterDelete guifg=#cc241d
 
 " git gutter (dracula)
-highlight GitGutterAdd guifg=#50fa7b gui=none
-highlight GitGutterChange guifg=#8be9fd
-highlight GitGutterDelete guifg=#ff5555
+highlight GitGutterAdd guifg=#40ca7b guibg=#181818
+highlight GitGutterChange guifg=#666666 guibg=#181818
+highlight GitGutterDelete guifg=#ff5555 guibg=#181818
+
 
 " git gutter (zenburn)
 "highlight GitGutterAdd guifg=#60B48A
 "highlight GitGutterChange guifg=#506070
 "highlight GitGutterDelete guifg=#dca3a3
-"
-" highlight SignColumn ctermbg=black guibg=green ctermfg=white guifg=white
+
+" let g:gitgutter_sign_added = '++'
+" let g:gitgutter_sign_modified = '~~'
+" let g:gitgutter_sign_removed = '__'
+" let g:gitgutter_sign_removed_first_line = '^^'
+" let g:gitgutter_sign_modified_removed = '~_'
+
+highlight SignColumn ctermbg=black guibg=#181818 ctermfg=white guifg=white
+let g:gitgutter_set_sign_backgrounds = 1
 
 " highlight lineNr guibg=#504945 guifg=grey
 " highlight CursorLineNr guibg=#222222 guifg=white gui=bold
 " Set interface colors
 highlight CWD ctermfg=grey ctermbg=black guibg=#504945 guifg=#000000 gui=bold
 highlight File ctermfg=red ctermbg=black guibg=#504945 guifg=#cbe1b1
-highlight FoldColumn ctermbg=black guibg=#706965
+" highlight FoldColumn ctermbg=black guibg=#706965
 
-highlight ColorColumn ctermbg=black guibg=#706965
+highlight ColorColumn ctermbg=black guibg=#181818
 
-highlight lineNr guibg=#504945 guifg=grey
+highlight lineNr guibg=#181818 guifg=grey
 highlight CursorLineNr guibg=#222222 guifg=white gui=bold
 
 highlight StatusLine guibg=#dddddd ctermbg=white
 " less obtrusive search highlighting
-highlight Search ctermbg=black ctermfg=lightblue cterm=bold,underline gui=bold,underline guibg=#555599 guifg=white
-" highlight Search gui=bold,underline guibg=#555599 guifg=white
+highlight Search gui=bold,underline guibg=#111111 guifg=#ff8700
+" highlight Search ctermbg=black ctermfg=lightblue cterm=bold,underline gui=bold,underline guibg=#555599 guifg=#111111
 " }}
 
 " buffers
@@ -151,7 +162,7 @@ set splitbelow
 set splitright
 
 " wrapping and stuff
-set showbreak=\ ↳\ ↳\ ↳\ 
+set showbreak=\ ↳\ \ \ ↳\ 
 set breakindent
 set breakindentopt=sbr,shift:4
 set nolist
@@ -175,6 +186,13 @@ set statusline+=%h
 set statusline+=%w
 " lightgrey
 set statusline+=%#Cursor#
+
+" Your vimrc
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+
 " buffer number
 set statusline+=\ %n\ 
 " mode trick from https://dustri.org/b/lightweight-and-sexy-status-bar-in-vim.html
@@ -186,6 +204,7 @@ set statusline+=%#StatusLineIM#
 " short filename
 set statusline+=\ %f\ 
 set statusline+=%=
+set statusline+=\ %{GitStatus()}\ 
 set statusline+=%#CWD#
 set statusline+=%{coc#status()}
 set statusline+=%#Cursor#

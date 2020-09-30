@@ -29,12 +29,7 @@ nnoremap <leader>Y gg"*yG``
 " saves all open buffers
 nnoremap <leader>w :wall<CR>
 nnoremap <leader>g :Git 
-
-" EZ window switching... mostly been using c-w though. might ditch
-" nnoremap <leader>h <C-w>h
-" nnoremap <leader>j <C-w>j
-" nnoremap <leader>k <C-w>k
-" nnoremap <leader>l <C-w>l
+nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 
 nnoremap <leader>D :put =strftime('%m/%d/%y')<CR>
 
@@ -84,7 +79,6 @@ nnoremap ]q :cn<CR>
 nnoremap ]l :lprev<CR>
 nnoremap [l :lnext<CR>
 
-
 " vertical new files instead of horizontal
 nnoremap <C-w>N :vnew<CR>
 
@@ -112,3 +106,14 @@ inoremap jk <Esc>
 "visual mode
 vnoremap < <gv
 vnoremap > >gv
+
+""""""""""""""""""""""""""""""""""""""""
+" CUSTOM TEXT OBJECTS
+""""""""""""""""""""""""""""""""""""""""
+
+" TODO kind of jank, will delete to next | if called outside of ||,
+" also won't nest properly (that shouldn't matter for rust closures)
+vnoremap i<bar> :<C-U>silent! normal! T<bar>vt<bar><CR>
+omap i<bar> :normal vi<bar><CR>
+vnoremap a<bar> :<C-U>silent! normal! F<bar>vf<bar><CR>
+omap a<bar> :normal va<bar><CR>
