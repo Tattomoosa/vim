@@ -12,6 +12,7 @@ Plug 'airblade/vim-gitgutter'
 " syntax highlighting
 " Plug 'gabrielelana/vim-markdown'
 Plug 'godlygeek/tabular'
+Plug 'huesersohn/curry.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
 " Plug 'bfrg/vim-cpp-modern'
@@ -24,6 +25,7 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'heavenshell/vim-jsdoc'
 Plug 'isruslan/vim-es6'
 Plug 'ap/vim-css-color'
 Plug 'othree/html5.vim'
@@ -88,8 +90,15 @@ let g:vim_markdown_conceal = 0
 " let g:pymode_python = 'python3'
 " coc
 set cmdheight=2
-nmap gd <Plug>(coc-definition)
-" nmap <leader>d <Plug>(coc-
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" rename symbol
+nmap <leader>rn <Plug>(coc-rename)
+" B
+" nmap a <Plug>(coc-
+
 " go to next warning (or error)
 nmap ]w <Plug>(coc-diagnostic-next)
 nmap [w <Plug>(coc-diagnostic-prev)
@@ -108,6 +117,9 @@ endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
-" Does function signatures after 'jumping to a placeholder' ??
+" Does function signatures after jumping to a placeholder
+" None of my language servers seem to have placeholders? :(
+" Maybe this is snippet integration or something
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+" Don't pass messages to |ins-completion-menu|
 set shortmess+=c
